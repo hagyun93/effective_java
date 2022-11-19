@@ -7,6 +7,7 @@ import java.util.Map;
 /*
     1. 생성자 대신 정적 팩토리 메서드를 고려하라. ( 장점 )
         - 이름을 가질 수 있다. ( 동일한 시그니처의 생성자를 두개 가질 수 없다. )
+        - 이름을 통해 다양한 표현이 가능하다.
 */
 public class Order {
     private boolean prime;
@@ -15,6 +16,7 @@ public class Order {
 
     private OrderStatus orderStatus;
 
+    // primeOrder Static Factory Method
     public static Order primeOrder(Product product) {
         Order order = new Order();
         order.prime = true;
@@ -22,6 +24,7 @@ public class Order {
         return order;
     }
 
+    // urgentOrder Static Factory Method
     public static Order urgentOrder(Product product) {
         Order order = new Order();
         order.urgent = true;
