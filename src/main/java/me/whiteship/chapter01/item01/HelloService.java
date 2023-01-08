@@ -8,7 +8,7 @@ package me.whiteship.chapter01.item01;
 public interface HelloService {
     String hello();
 
-    // Java 8 이상부터 인터페이스에 static method를 선언할 수 있다.
+    // Java 8 이상부터 인터페이스에 static method (public) 를 선언할 수 있다.
     static HelloService of (String lang) {
         if (lang.equals("ko")) {
             return new KoreanHelloService();
@@ -24,5 +24,10 @@ public interface HelloService {
     static String hi(){
         prepareMessage();
         return "hi";
+    }
+
+    default String bye() {
+        prepareMessage();
+        return "bye";
     }
 }
