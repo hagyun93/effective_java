@@ -23,6 +23,10 @@ public class SpellChecker {
         this.dictionary = dictionarySupplier.get();
     }
 
+    public SpellChecker(DictionaryFactory dictionaryFactory) {
+        this.dictionary = dictionaryFactory.get();
+    }
+
     public boolean isVaild(String word) {
         return dictionary.contains(word);
     }
