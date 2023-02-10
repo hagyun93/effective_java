@@ -1,0 +1,38 @@
+가비지 컬렉션 - 기본 개념
+
+Keyword
+Mark, Sweep, Compact
+
+Mark
+- 더 이상 Object 가 계속해서 reference 를 가지고 있는지 아닌지를 Check ( 제거해도 되는 instance 인지 체크 )
+
+Sweep
+- 필요없는 Object 를 실제로 Memory 공간 ( Heap ) 에서 제거한다.
+
+Compact
+- 메모리 공간에서 Sweep 되고 남은 파편화된 공간을 Compact 한다.
+
+
+Young Generation 영역, Old Generation 영역 ( 객체들은 보통 생명주기가 짧다. -> 오래 살아남는 객체가 많지 않다. )
+
+Young Generation ( Eden, S0, S1 )
+- 생명주기가 짧은 객체들을 관리 ( Eden 영역이 가득차면 가비지 컬렉션이 발생한다. 오래 살아남는 객체가 있으면 Old Gen으로 넘김 )
+- Minor GC
+
+Old Generation
+- 생명주기가 긴 객체들을 관리
+- Full GC
+
+
+Full GC Algorithm
+
+Throughput - 서버의 리소스를 얼마나 차지하느냐, 서버 처리량에 얼마나 영향을 주느냐
+Latency (Stop-The-World) - GC 처리가 완료될때까지 모든 작업이 멈춘다. GC 처리가 길어질수록 시스템 장애에 영향을 끼친다.
+Footprint - GC Algorithm 을 수행함에 있어서 얼마나 많은 메모리 공간을 필요로 하느냐
+
+- Parallel GC ( java8 default GC ) -> Latency 가 높다.
+- G1 GC ( java11 default GC )
+- ZGC ( Production Level 로 사용할 수 있는... 가장 Latency 가 적은 )
+- Shenandoah GC ( 아직 Production Level 은 아님.. )
+
+각 GC Algorithm 별 JAVA OPTiON, tool 확인
